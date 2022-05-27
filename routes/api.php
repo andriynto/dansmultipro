@@ -18,4 +18,8 @@ Route::middleware('client')->group(function () {
     Route::namespace('App\Http\Controllers\Auth')->group(function () {
         Route::post('auth/check-accessToken', 'AccessTokenController@checkAccessToken')->name('auth.checkAccessToken');
     });
+
+    Route::namespace('App\Http\Controllers\Api')->group(function () {
+        Route::get('jobs', 'jobController@get')->name('jobs.get');
+    });
 });
