@@ -65,6 +65,11 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'client'    => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
         'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
-        'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class
+        'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
+        'role' => \Laratrust\Middleware\LaratrustRole::class,
+        'permission' => \Laratrust\Middleware\LaratrustPermission::class,
+        'ability' => \Laratrust\Middleware\LaratrustAbility::class,
+        'unverified' => \App\Http\Middleware\RedirectIfUnverified::class,
+        'access.token'     => \App\Http\Middleware\AccessToken::class,
     ];
 }

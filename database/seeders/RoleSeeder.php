@@ -17,5 +17,10 @@ class RoleSeeder extends Seeder
             ['name' => 'administrator'],
             ['name' => 'administrator', 'display_name' => 'Administrator', 'description' => 'Administrator']
         );
+
+        $role1 = \App\Models\Role::firstOrCreate(
+            ['name' => 'user'],
+            ['name' => 'user', 'display_name' => 'User', 'description' => 'User']
+        );
     }
 }
