@@ -49,6 +49,8 @@ Route::middleware(['auth'])->group(function() {
         Route::middleware(['unverified', 'access.token'])->group(function() {
             Route::get('/', ['as' => 'index', 'uses' => 'DashboardController@index']);
             Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+
+            Route::get('/jobs/lists', ['as' => 'dashboard', 'uses' => 'DashboardController@lists']);
         });
     }));
 });

@@ -43,16 +43,21 @@ class jobController extends Controller
             }
         }
 
-        if($statusCode != 200) {
-            return $data = $resp($statusCode, 'Error');    
-        }
+        $responseCode = '500';
+        $responseDescription = 'Error';
 
-        $content = json_decode($response->getBody()->getContents(), true);
+        if($statusCode != 200) {
+            $content = [];
+        }else {
+            $responseCode = '00';
+            $responseDescription = 'Success';
+            $content = json_decode($response->getBody()->getContents(), true);
+        }
 
         return response()->json([
             'status'        => true,
-            'responseDescription' => 'Success',
-            'responseCode'  => '00',
+            'responseDescription' => $responseDescription,
+            'responseCode'  => $responseCode,
             'data'          => [
                 'data'      => $content,
                 'totalData' => 32,
